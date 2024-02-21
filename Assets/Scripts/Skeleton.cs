@@ -4,37 +4,48 @@ using UnityEngine;
 
 public class Skeleton : MonoBehaviour
 {
+    public float velocidad; //Velocidad de movimiento
+    public Vector3 posicionFin; //Posición a la que queremos que se desplace
+    public Vector3 posicionInicio; //Posición actual
+    private bool moviendoAFin; //Para saber si vamos en dirección a la posición final o ya estamos de vuelta
+    
+    //Variables de la barra de vida
+    public float health = 100;
+    public float maxHealth = 100;
+    public FloatingHealthBar healthBar;
+
     // Start is called before the first frame update
-    [Range(1, 10)] public float velocidad;
-    Rigidbody2D rb2d;
-    SpriteRenderer spRd;
-    private Animator animator;
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
-        spRd = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
+        posicionInicio = transform.position;  //Nos da la posición en la que estamos
+
+        moviendoAFin = true;
+
+        healthBar = GetComponentInChildren<FloatingHealthBar>();
+        healthBar.UpdateHealthBar(health, maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float movimientoHorizontal = Input.GetAxisRaw("Horizontal");
+        MoverEnemigo();
+    }
 
-        rb2d.velocity = new Vector2(movimientoHorizontal * velocidad, rb2d.velocity.y);
+    private void MoverEnemigo()
+    {
+        Vector3 posiciondestino = (moviendoAFin) ? posicionFin : posicionInicio;
+        transform.position = Vector3.MoveTowards(transform.position, posiciondestino, velocidad * Time.deltaTime);
+        if (transform.position == posicionFin) moviendoAFin = false;
+        if (transform.position == posicionInicio) moviendoAFin = true;
+    }
 
-        if (movimientoHorizontal > 0)
+    public void TakeDamage(float damageAmount)
+    {
+        health -= damageAmount;
+        healthBar.UpdateHealthBar(health, maxHealth);
+        if (health <= 0)
         {
-            spRd.flipX = false;
-        }
-        else if (movimientoHorizontal < 0)
-        {
-            spRd.flipX = true;
-        }
-
-        if (movimientoHorizontal != 0)
-        {
-            animator.SetBool("isSpawned", true);
+            Destroy(gameObject);
         }
     }
 }
