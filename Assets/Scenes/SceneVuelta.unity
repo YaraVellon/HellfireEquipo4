@@ -6163,6 +6163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 4242711008656244200, guid: ce0d875f5cf04a24ebe27267ca632362, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8151885176774350032, guid: ce0d875f5cf04a24ebe27267ca632362, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.62
