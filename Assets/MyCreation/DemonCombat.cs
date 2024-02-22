@@ -34,8 +34,16 @@ public class DemonCombat : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("Hit");
-            enemy.GetComponent<Skeleton>().TakeDamage(attackDamage);
+            Debug.Log("Hit "+enemy.name);
+            if(enemy.name == "Skeleton")
+            {
+                enemy.GetComponent<Skeleton>().TakeDamage(attackDamage);
+            }
+            else if(enemy.name == "BurningGhoul")
+            {
+                enemy.GetComponent<BurningGhoul>().TakeDamage(attackDamage);
+            }
+
         }
     }
 

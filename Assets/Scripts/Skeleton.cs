@@ -14,6 +14,8 @@ public class Skeleton : MonoBehaviour
     public float maxHealth = 100;
     public FloatingHealthBar healthBar;
 
+    bool followingPlayer = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,20 @@ public class Skeleton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoverEnemigo();
+        if(followingPlayer == false)
+        {
+            MoverEnemigo();
+        }
+    }
+
+    public void stopMovement()
+    {
+        followingPlayer = true;
+    }
+
+    public void keepMoving()
+    {
+        followingPlayer = false;
     }
 
     private void MoverEnemigo()
