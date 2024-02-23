@@ -17,6 +17,8 @@ public class DemonBehaviour : MonoBehaviour
     //Para la utilizacion del Animator del jugador
     private Animator animator;
 
+    public bool dir;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,10 +41,12 @@ public class DemonBehaviour : MonoBehaviour
 
         if (movimientoH > 0)
         {
+            dir = false;
             spRd.flipX = false;
         }
         else if (movimientoH < 0)
         {
+            dir = true;
             spRd.flipX = true;
         }
 

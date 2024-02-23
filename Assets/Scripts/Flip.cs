@@ -14,10 +14,9 @@ public class Flip : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
-
     private void Update()
     {
-
+        GetComponent<Skeleton>().dir = !(posicionXAnterior < transform.position.x);
     }
 
     // Update is called once per frame

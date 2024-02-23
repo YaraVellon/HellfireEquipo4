@@ -7,7 +7,8 @@ public class DemonCombat : MonoBehaviour
 
     public Animator animator;
 
-    public Transform attackPoint;
+    public Transform attackPointR;
+    public Transform attackPointL;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
@@ -29,14 +30,24 @@ public class DemonCombat : MonoBehaviour
     private void Attack()
     {
         animator.SetTrigger("Attack");
-        
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach(Collider2D enemy in hitEnemies)
+        Collider2D[] hitEnemies;
+
+        if (GetComponent<DemonBehaviour>().dir)
+        {
+            hitEnemies = Physics2D.OverlapCircleAll(attackPointL.position, attackRange, enemyLayers);
+        }
+        else
+        {
+            hitEnemies = Physics2D.OverlapCircleAll(attackPointR.position, attackRange, enemyLayers);
+        }
+
+        foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("Hit "+enemy.name);
             if(enemy.name == "Skeleton")
             {
+                Debug.Log("hit");
                 enemy.GetComponent<Skeleton>().TakeDamage(attackDamage);
             }
             else if(enemy.name == "BurningGhoul")
@@ -47,13 +58,4 @@ public class DemonCombat : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        if(attackPoint == null)
-        {
-            return;
-        }
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
 }

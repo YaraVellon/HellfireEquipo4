@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class Skeleton : MonoBehaviour
 {
@@ -16,6 +17,22 @@ public class Skeleton : MonoBehaviour
 
     bool followingPlayer = false;
 
+    Rigidbody2D rb2d;
+
+    public float moveSpeed;
+
+    [SerializeField] float rayDistance = 1f;
+
+    [SerializeField] LayerMask playerLayer;
+
+    public GameObject obstacleRayObject;
+
+    public bool dir = false;
+
+    private bool chasing = false;
+
+    public ParticleSystem dust;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,29 +42,57 @@ public class Skeleton : MonoBehaviour
 
         healthBar = GetComponentInChildren<FloatingHealthBar>();
         healthBar.UpdateHealthBar(health, maxHealth);
+
+        rb2d = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(followingPlayer == false)
+        RaycastHit2D hitPlayerL = Physics2D.Raycast(obstacleRayObject.transform.position, Vector2.left, rayDistance, playerLayer);
+        RaycastHit2D hitPlayerR = Physics2D.Raycast(obstacleRayObject.transform.position, Vector2.right, rayDistance, playerLayer);
+
+        if (hitPlayerL.collider != null)
         {
-            MoverEnemigo();
+            if (hitPlayerL.collider.gameObject.name == "Demon" && dir)
+            {
+                Debug.Log("chasing");
+                chasing = true;
+                ChasePlayer(hitPlayerL.collider.gameObject.transform.position);
+            }
+
         }
-    }
+        else if (hitPlayerR.collider != null)
+        {
+            if (hitPlayerR.collider.gameObject.name == "Demon" && dir == false)
+            {
+                Debug.Log("chasing");
+                chasing = true;
+                ChasePlayer(hitPlayerR.collider.gameObject.transform.position);
+            }
+        }
+        else
+        {
+            Debug.Log("stop chasing");
+            StopChasingPlayer();
+            chasing = false;
+        }
 
-    public void stopMovement()
-    {
-        followingPlayer = true;
-    }
+        if (followingPlayer == false)
+        {
+            if (!chasing)
+            {
+                MoverEnemigo();
+            }
+            
+        }
 
-    public void keepMoving()
-    {
-        followingPlayer = false;
     }
 
     private void MoverEnemigo()
     {
+        dust.Play();
         Vector3 posiciondestino = (moviendoAFin) ? posicionFin : posicionInicio;
         transform.position = Vector3.MoveTowards(transform.position, posiciondestino, velocidad * Time.deltaTime);
         if (transform.position == posicionFin) moviendoAFin = false;
@@ -62,5 +107,23 @@ public class Skeleton : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void ChasePlayer(Vector3 playerpos)
+    {
+        
+        if (transform.position.x < playerpos.x)
+        {
+            rb2d.velocity = new Vector2(moveSpeed, 0);
+        }
+        else
+        {
+            rb2d.velocity = new Vector2(-moveSpeed, 0);
+        }
+    }
+
+    void StopChasingPlayer()
+    {
+        rb2d.velocity = new Vector2(0, 0);
     }
 }
