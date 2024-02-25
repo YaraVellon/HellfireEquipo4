@@ -30,6 +30,8 @@ public class DemonBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //GRAVEDAD PARA QUE EL SALTO NO PAREZCA QUE ESTA EN LA LUNA
+        rb2d.AddForce(new Vector2(0f,-1f));
         //RECOJO LOS VALORES QUE INDICAN EL MOVIMIENTO DEL PERSONAJE (1) - derecha , (-1) - izquierda, (0) - parado
         float movimientoH = Input.GetAxisRaw("Horizontal");
         rb2d.velocity = new Vector2(movimientoH * velocidad, rb2d.velocity.y);

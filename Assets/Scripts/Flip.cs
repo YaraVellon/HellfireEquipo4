@@ -14,14 +14,14 @@ public class Flip : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
-    {
-        GetComponent<Skeleton>().dir = !(posicionXAnterior < transform.position.x);
-    }
-
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (sprite.name == "Skeleton") //Se comprueba la clase del que se le va a cambiar la direccion
+        {
+            GetComponent<Skeleton>().dir = !(posicionXAnterior < transform.position.x); //Es ! ... porque sino las direcciones se hacian contrarias con otras clases.
+        }
+        
         sprite.flipX = posicionXAnterior < transform.position.x;
         posicionXAnterior = transform.position.x;
     }
