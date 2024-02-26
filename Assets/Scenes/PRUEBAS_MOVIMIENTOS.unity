@@ -1192,9 +1192,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 1953720440040162421, guid: ce0d875f5cf04a24ebe27267ca632362, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.995
+      objectReference: {fileID: 0}
+    - target: {fileID: 1953720440040162421, guid: ce0d875f5cf04a24ebe27267ca632362, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 4242711008656244200, guid: ce0d875f5cf04a24ebe27267ca632362, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015119382048289332, guid: ce0d875f5cf04a24ebe27267ca632362, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 5015119382048289332, guid: ce0d875f5cf04a24ebe27267ca632362, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 8151885176774350032, guid: ce0d875f5cf04a24ebe27267ca632362, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1252,7 +1268,7 @@ GameObject:
   - component: {fileID: 517977973}
   - component: {fileID: 517977978}
   - component: {fileID: 517977977}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Background
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -3930,7 +3946,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1203277185}
   - component: {fileID: 1203277184}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4124,7 +4140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 6.09
-  potenciaSalto: 375
+  potenciaSalto: 500
   dir: 0
 --- !u!50 &1826405534
 Rigidbody2D:

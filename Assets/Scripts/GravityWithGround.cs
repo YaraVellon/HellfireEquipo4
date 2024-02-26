@@ -31,11 +31,10 @@ public class GravityWithGround : MonoBehaviour
     {
         if (Physics2D.OverlapBox(groundCheck.position, groundCheckSize, 0, groundMask))
         {
-            Debug.Log("floor");
+            //Si esta tocando suelo no se aplica ninguna gravedad
         }
         else
         {
-            Debug.Log("not floor");
             rb2d.AddForce(new Vector2(0f, -300f));
         }
     }
