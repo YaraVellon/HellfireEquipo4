@@ -50,6 +50,7 @@ public class DemonCombat : MonoBehaviour
             }
             else if(enemy.name == "BurningGhoul")
             {
+                Debug.Log("Hitted");
                 enemy.GetComponent<BurningGhoul>().TakeDamage(attackDamage);
             }
 

@@ -14,6 +14,19 @@ public class BurningGhoul : MonoBehaviour
     public float maxHealth = 100;
     public FloatingHealthBar healthBar;
     // Start is called before the first frame update
+    Rigidbody2D rb2d;
+    public float moveSpeed;
+    [SerializeField] float rayDistance = 1f;
+    [SerializeField] LayerMask playerLayer;
+    public GameObject obstacleRayObjectL;
+    public GameObject obstacleRayObjectR;
+    public bool dir = false;
+    private bool chasing = false;
+    RaycastHit2D hitPlayerL;
+    RaycastHit2D hitPlayerR;
+    public ParticleSystem dust;
+
+    public Animator animator;
     void Start()
     {
         posicionInicio = transform.position;  //Nos da la posición en la que estamos
@@ -22,12 +35,55 @@ public class BurningGhoul : MonoBehaviour
 
         healthBar = GetComponentInChildren<FloatingHealthBar>();
         healthBar.UpdateHealthBar(health, maxHealth);
+        animator = GetComponent<Animator>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MoverEnemigo();
+        Vector2 boxSize = new Vector2(rayDistance, rayDistance);
+        hitPlayerL = Physics2D.BoxCast(obstacleRayObjectL.transform.position, boxSize, 0f, Vector2.left, 0f, playerLayer);
+        hitPlayerR = Physics2D.BoxCast(obstacleRayObjectR.transform.position, boxSize, 0f, Vector2.left, 0f, playerLayer);
+
+        //Si la caja de vision izquierda no es null se comprueba que ha visto
+        if (hitPlayerL.collider != null)
+        {
+            //Si lo que ha visto es al jugador se le persigue
+            if (hitPlayerL.collider.gameObject.name == "Demon" && dir == true)
+            {
+                chasing = true;
+                ChasePlayer(hitPlayerL.collider.gameObject.transform.position);
+            }
+
+            //Si la caja de vision derecha no es null se comprueba que ha visto
+        }
+        else if (hitPlayerR.collider != null)
+        {
+            //Si lo que ha visto es al jugador se le persigue
+            if (hitPlayerR.collider.gameObject.name == "Demon" && dir == false)
+            {
+                chasing = true;
+                ChasePlayer(hitPlayerR.collider.gameObject.transform.position);
+            }
+        }
+        else
+        {
+            StopChasingPlayer();
+            chasing = false;
+        }
+        if (!chasing)
+        {
+
+            MoverEnemigo();
+        }
+    }
+    private void OnDrawGizmos()
+    {
+        Vector2 boxSize = new Vector2(rayDistance, rayDistance);
+        Gizmos.DrawWireCube(obstacleRayObjectL.transform.position, boxSize);
+        Gizmos.DrawWireCube(obstacleRayObjectR.transform.position, boxSize);
+        Gizmos.color = Color.red;
     }
     private void MoverEnemigo()
     {
@@ -43,7 +99,31 @@ public class BurningGhoul : MonoBehaviour
         healthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
         {
-            Destroy(gameObject);
+            healthBar.gameObject.SetActive(false);
+            StartCoroutine(DestroyTimer());
+            //Destroy(gameObject);
         }
+    }
+    IEnumerator DestroyTimer()
+    {
+        animator.Play("Death"); //Se reproduce la animacion de muerte
+        yield return new WaitForSeconds(0.418f); //PARA SABER CUANTO TIEMPO TIENES QUE PONER AQUI, SIMPLEMENTE MIRAR LA DURACION DE LA ANIMACION o ir probando.
+        Destroy(gameObject); //Se destruye al enemigo
+    }
+    void ChasePlayer(Vector3 playerpos)
+    {
+
+        if (transform.position.x < playerpos.x)
+        {
+            rb2d.velocity = new Vector2(moveSpeed, 0);
+        }
+        else
+        {
+            rb2d.velocity = new Vector2(-moveSpeed, 0);
+        }
+    }
+    void StopChasingPlayer()
+    {
+        rb2d.velocity = new Vector2(0, 0);
     }
 }
