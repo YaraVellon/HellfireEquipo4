@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Advertencia.unity
     guid: d0902f2cdf088864cb4cc700a4cc84e3
   - enabled: 1
+    path: Assets/Scenes/Trono.unity
+    guid: 148781504d9f7b846bc2171986498a33
+  - enabled: 1
     path: Assets/Scenes/Avance.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   - enabled: 1

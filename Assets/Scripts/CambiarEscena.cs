@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CambiarEscena : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class CambiarEscena : MonoBehaviour
         // con la etiqueta del jugador
         if (collision.CompareTag("Player"))
         {
-            gameManager.cambiarEscena(siguienteEscena);
+            SceneManager.LoadScene(siguienteEscena);
             Destroy(gameObject);
         }
     }
