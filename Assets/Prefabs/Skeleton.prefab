@@ -4990,7 +4990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 1
-  posicionFin: {x: 0, y: -4.09, z: 0}
+  posicionFin: {x: 11.65, y: 0.91, z: 0}
   posicionInicio: {x: 0, y: -4.09, z: 0}
   health: 100
   maxHealth: 100
@@ -5093,8 +5093,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015536172, y: -0.045325235}
-  m_Size: {x: 0.33987767, y: 0.42934945}
+  m_Offset: {x: -0.038244195, y: -0.063600756}
+  m_Size: {x: 0.16325812, y: 0.39279827}
   m_Direction: 0
 --- !u!1 &2767812500021734611
 GameObject:

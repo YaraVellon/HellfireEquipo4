@@ -121,11 +121,33 @@ public class GhostHalo : MonoBehaviour
 
         if (transform.position.x < playerpos.x)
         {
-            rb2d.velocity = new Vector2(moveSpeed, 0);
+            if (transform.position.y < playerpos.y)
+            {
+                rb2d.velocity = new Vector2(moveSpeed, moveSpeed);
+            } else if (transform.position.y > playerpos.y)
+            {
+                rb2d.velocity = new Vector2(moveSpeed, -moveSpeed);
+            }
+            else
+            {
+                rb2d.velocity = new Vector2(moveSpeed, 0);
+            }
+            
         }
         else
         {
-            rb2d.velocity = new Vector2(-moveSpeed, 0);
+            if (transform.position.y < playerpos.y)
+            {
+                rb2d.velocity = new Vector2(-moveSpeed, moveSpeed);
+            }
+            else if (transform.position.y > playerpos.y)
+            {
+                rb2d.velocity = new Vector2(-moveSpeed, -moveSpeed);
+            }
+            else
+            {
+                rb2d.velocity = new Vector2(-moveSpeed, 0);
+            }
         }
     }
 

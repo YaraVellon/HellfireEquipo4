@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Wizard : MonoBehaviour
 {
-    public float velocidad; //Velocidad de movimiento
-    public Vector3 posicionFin; //Posición a la que queremos que se desplace
-    public Vector3 posicionInicio; //Posición actual
-    private bool moviendoAFin; //Para saber si vamos en dirección a la posición final o ya estamos de vuelta
 
     //Variables de la barra de vida
     [SerializeField] public float health = 100; //Vida al aparecer en el mapa
@@ -36,9 +32,6 @@ public class Wizard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        posicionInicio = transform.position;  //Nos da la posición en la que estamos
-
-        moviendoAFin = true;
 
         healthBar = GetComponentInChildren<FloatingHealthBar>();
         healthBar.UpdateHealthBar(health, maxHealth);
@@ -78,14 +71,8 @@ public class Wizard : MonoBehaviour
         else
         {
             StopChasingPlayer();
-            chasing = false;
         }
 
-        //Segun el valor de la variable CHASING - esta se activa si el enemigo esta persiguiendo al jugador el enemigo vuelve a hacer su camino o para
-        if (!chasing)
-        {
-            MoverEnemigo();
-        }
     }
     private void OnDrawGizmos()
     {
@@ -95,15 +82,6 @@ public class Wizard : MonoBehaviour
         Gizmos.color = Color.red;
     }
 
-    //Método que declara al enemigo hacia donde tiene que ir
-    private void MoverEnemigo()
-    {
-        dust.Play();
-        Vector3 posiciondestino = (moviendoAFin) ? posicionFin : posicionInicio;
-        transform.position = Vector3.MoveTowards(transform.position, posiciondestino, velocidad * Time.deltaTime);
-        if (transform.position == posicionFin) moviendoAFin = false;
-        if (transform.position == posicionInicio) moviendoAFin = true;
-    }
 
 
     public void TakeDamage(float damageAmount)
