@@ -2,34 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClothedSkeleton : MonoBehaviour
+public class Wizard : MonoBehaviour
 {
-    public float velocidad;
-    public Vector3 posicionFin;
-    public Vector3 posicionInicio;
-    private bool moviendoAFin;
+    public float velocidad; //Velocidad de movimiento
+    public Vector3 posicionFin; //Posición a la que queremos que se desplace
+    public Vector3 posicionInicio; //Posición actual
+    private bool moviendoAFin; //Para saber si vamos en dirección a la posición final o ya estamos de vuelta
 
-    [SerializeField] public float health = 100;
-    [SerializeField] public float maxHealth = 100;
-    public FloatingHealthBar healthBar;
+    //Variables de la barra de vida
+    [SerializeField] public float health = 100; //Vida al aparecer en el mapa
+    [SerializeField] public float maxHealth = 100; //Vida maxima
+    public FloatingHealthBar healthBar; //Barra de vida flotante (slider) del enemigo
 
-    Rigidbody2D rb2d; 
-    public float moveSpeed;
-    [SerializeField] float rayDistance = 1f;
-    [SerializeField] LayerMask playerLayer;
-    public GameObject obstacleRayObjectL; 
-    public GameObject obstacleRayObjectR;
-    public bool dir = false;
-    private bool chasing = false;
-    RaycastHit2D hitPlayerL;
-    RaycastHit2D hitPlayerR;
+    //Variables para la persecucion del personaje 
+    Rigidbody2D rb2d; //RigidBody del enemigo. Con esta variable se le modifica la velocidad al enemigo cuando vea al personaje
+    public float moveSpeed; //Velocidad que tomara el enemigo cuando vea al personaje
+    [SerializeField] float rayDistance = 1f; //Distancia de vision (si no esta en 6 hay que modificar las posiciones de las demas cosas)
+    [SerializeField] LayerMask playerLayer; //Capa donde se encuentra el jugador
+    public GameObject obstacleRayObjectL; //Punto desde donde comienza la vision de la izquierda
+    public GameObject obstacleRayObjectR; //Punto desde donde comienza la vision de la derecha
+    public bool dir = false; //Direccion hacia la que camina el enemigo; if true -- izquierda, if false -- derecha. ESTA SE MODIFICA EN EL SCRIPT DE FLIP
+    private bool chasing = false; //Variable que indica si el enemigo esta con el comportamiento de persecucion
+    RaycastHit2D hitPlayerL; //Listener de colisiones del area izquierda
+    RaycastHit2D hitPlayerR; //Listener de colisiones del area derecha
 
+    //Variables para las particulas del movimiento
+    //(SE TIENE QUE PONER QUE SOLO SE MUESTREN SI EL ENEMIGO ESTA MOVIENDOSE PERO COMO NO TIENE UNA ANIMACION DE IDLE PUES NO SE COMO HACERLO)
     public ParticleSystem dust;
 
-    
+    //Variables para la muerte del enemigo
     public Animator animator;
 
-    
+    // Start is called before the first frame update
     void Start()
     {
         posicionInicio = transform.position;  //Nos da la posición en la que estamos
@@ -40,7 +44,6 @@ public class ClothedSkeleton : MonoBehaviour
         healthBar.UpdateHealthBar(health, maxHealth);
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -83,12 +86,7 @@ public class ClothedSkeleton : MonoBehaviour
         {
             MoverEnemigo();
         }
-
-
-
     }
-
-    //ESTE METODO SOLO MUESTRA EN EL SCENE COMO DE GRANDE ES EL AREA DE VISION DEL ENEMIGO
     private void OnDrawGizmos()
     {
         Vector2 boxSize = new Vector2(rayDistance, rayDistance);

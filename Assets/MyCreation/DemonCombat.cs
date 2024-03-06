@@ -44,7 +44,25 @@ public class DemonCombat : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            if(enemy.name == "Skeleton")
+            switch (enemy.name)
+            {
+                case "Skeleton":
+                    enemy.GetComponent<Skeleton>().TakeDamage(attackDamage);
+                    break;
+                case "BurningGhoul":
+                    enemy.GetComponent<BurningGhoul>().TakeDamage(attackDamage);
+                    break;
+                case "ClothedSkeleton":
+                    enemy.GetComponent<ClothedSkeleton>().TakeDamage(attackDamage);
+                    break;
+                case "GhostHalo":
+                    enemy.GetComponent<GhostHalo>().TakeDamage(attackDamage);
+                    break;
+                case "Wizard":
+                    enemy.GetComponent<Wizard>().TakeDamage(attackDamage);
+                    break;
+            }
+            /*if(enemy.name == "Skeleton")
             {
                 enemy.GetComponent<Skeleton>().TakeDamage(attackDamage);
             }
@@ -52,7 +70,7 @@ public class DemonCombat : MonoBehaviour
             {
                 Debug.Log("Hitted");
                 enemy.GetComponent<BurningGhoul>().TakeDamage(attackDamage);
-            }
+            }*/
 
         }
     }

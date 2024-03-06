@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClothedSkeleton : MonoBehaviour
+public class GhostHalo : MonoBehaviour
 {
     public float velocidad;
     public Vector3 posicionFin;
@@ -13,11 +13,11 @@ public class ClothedSkeleton : MonoBehaviour
     [SerializeField] public float maxHealth = 100;
     public FloatingHealthBar healthBar;
 
-    Rigidbody2D rb2d; 
+    Rigidbody2D rb2d;
     public float moveSpeed;
     [SerializeField] float rayDistance = 1f;
     [SerializeField] LayerMask playerLayer;
-    public GameObject obstacleRayObjectL; 
+    public GameObject obstacleRayObjectL;
     public GameObject obstacleRayObjectR;
     public bool dir = false;
     private bool chasing = false;
@@ -26,10 +26,8 @@ public class ClothedSkeleton : MonoBehaviour
 
     public ParticleSystem dust;
 
-    
-    public Animator animator;
 
-    
+    public Animator animator;
     void Start()
     {
         posicionInicio = transform.position;  //Nos da la posición en la que estamos
@@ -40,7 +38,6 @@ public class ClothedSkeleton : MonoBehaviour
         healthBar.UpdateHealthBar(health, maxHealth);
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -83,12 +80,7 @@ public class ClothedSkeleton : MonoBehaviour
         {
             MoverEnemigo();
         }
-
-
-
     }
-
-    //ESTE METODO SOLO MUESTRA EN EL SCENE COMO DE GRANDE ES EL AREA DE VISION DEL ENEMIGO
     private void OnDrawGizmos()
     {
         Vector2 boxSize = new Vector2(rayDistance, rayDistance);
