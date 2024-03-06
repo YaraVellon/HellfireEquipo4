@@ -87,6 +87,7 @@ public class BurningGhoul : MonoBehaviour
     }
     private void MoverEnemigo()
     {
+        dust.Play();
         Vector3 posiciondestino = (moviendoAFin) ? posicionFin : posicionInicio;
         transform.position = Vector3.MoveTowards(transform.position, posiciondestino, velocidad * Time.deltaTime);
         if (transform.position == posicionFin) moviendoAFin = false;
