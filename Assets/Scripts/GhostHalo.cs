@@ -11,23 +11,20 @@ public class GhostHalo : MonoBehaviour
 
     [SerializeField] public float health = 100;
     [SerializeField] public float maxHealth = 100;
-    public FloatingHealthBar healthBar;
+    [SerializeField] FloatingHealthBar healthBar;
 
-    Rigidbody2D rb2d;
+    [SerializeField] Rigidbody2D rb2d;
     public float moveSpeed;
     [SerializeField] float rayDistance = 1f;
     [SerializeField] LayerMask playerLayer;
-    public GameObject obstacleRayObjectL;
-    public GameObject obstacleRayObjectR;
+    [SerializeField] GameObject obstacleRayObjectL;
+    [SerializeField] GameObject obstacleRayObjectR;
     public bool dir = false;
     private bool chasing = false;
-    RaycastHit2D hitPlayerL;
-    RaycastHit2D hitPlayerR;
+    [SerializeField] RaycastHit2D hitPlayerL;
+    [SerializeField] RaycastHit2D hitPlayerR;
 
-    public ParticleSystem dust;
-
-
-    public Animator animator;
+    [SerializeField] Animator animator;
     void Start()
     {
         posicionInicio = transform.position;  //Nos da la posición en la que estamos
@@ -36,8 +33,6 @@ public class GhostHalo : MonoBehaviour
 
         healthBar = GetComponentInChildren<FloatingHealthBar>();
         healthBar.UpdateHealthBar(health, maxHealth);
-        animator = GetComponent<Animator>();
-        rb2d = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -92,7 +87,6 @@ public class GhostHalo : MonoBehaviour
     //Método que declara al enemigo hacia donde tiene que ir
     private void MoverEnemigo()
     {
-        dust.Play();
         Vector3 posiciondestino = (moviendoAFin) ? posicionFin : posicionInicio;
         transform.position = Vector3.MoveTowards(transform.position, posiciondestino, velocidad * Time.deltaTime);
         if (transform.position == posicionFin) moviendoAFin = false;

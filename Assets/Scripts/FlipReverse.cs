@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flip : MonoBehaviour
+public class FlipReverse : MonoBehaviour
 {
     private SpriteRenderer sprite;
     private float posicionXAnterior;
@@ -36,7 +36,7 @@ public class Flip : MonoBehaviour
                 break;
         }
         
-        sprite.flipX = posicionXAnterior < transform.position.x;
+        sprite.flipX = posicionXAnterior > transform.position.x;
         posicionXAnterior = transform.position.x;
     }
 }
