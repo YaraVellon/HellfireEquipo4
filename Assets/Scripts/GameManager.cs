@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     private int puntuacion;
     private int tiempoRestante;
     private int tiempoMAXIMO;
+    private float momentoInicio; // Instante en que se empieza a jugar
+    private int tiempoEmpleado; // El instante actual menos momentoInicio
 
     // Para determinar el ending alcanzado
     private bool bossDificil;
@@ -30,8 +32,9 @@ public class GameManager : MonoBehaviour
 
         puntuacion = 0;
 
-        tiempoMAXIMO = 10;
+        tiempoMAXIMO = 120;
         tiempoRestante = tiempoMAXIMO;
+        momentoInicio = Time.time;
 
         bossDificil = false;
         attackDamage = 20;
@@ -44,10 +47,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        tiempoEmpleado = (int)(Time.time - momentoInicio);
+        tiempoRestante = tiempoMAXIMO - tiempoEmpleado;
+
         if (tiempoRestante == 0)
         {
             bossDificil = true;
-            Console.WriteLine("MODO CHUNGO");
         }
     }
 
@@ -116,11 +121,6 @@ public class GameManager : MonoBehaviour
     public int getTiempo()
     {
         return this.tiempoRestante;
-    }
-
-    public void setTiempo(int restante)
-    {
-        this.tiempoRestante = restante;
     }
 
     public void subirTiempo(int tiempoSube)

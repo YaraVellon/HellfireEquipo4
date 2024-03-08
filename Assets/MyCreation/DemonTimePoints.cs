@@ -10,13 +10,6 @@ public class DemonTimePoints : MonoBehaviour
     private GameManager gameManager;
 
 
-    private float momentoInicio; // Instante en que se empieza a jugar
-    private int tiempoEmpleado; // El instante actual menos momentoInicio
-    private int tiempoMAX; // El tiempo máximo disponible
-    private int tiempoRestante;
-
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,19 +19,12 @@ public class DemonTimePoints : MonoBehaviour
 
 
         gameManager = FindObjectOfType<GameManager>();
-        tiempoMAX = gameManager.getTiempoMax();
-        momentoInicio = Time.time;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        // PARA EL CONTROL DEL TIEMPO
-        tiempoEmpleado = (int)(Time.time - momentoInicio);
-        tiempoRestante = tiempoMAX - tiempoEmpleado;
-
-        gameManager.setTiempo(tiempoRestante);
         hud.setTiempoText();
-
     }
 }

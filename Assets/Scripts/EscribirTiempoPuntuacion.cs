@@ -33,9 +33,16 @@ public class EscribirTiempoPuntuacion : MonoBehaviour
     {
         int tiempo = gameManager.getTiempo();
         // Quiero pasarlo a tiempo para que lo muestre como dos dígitos de minutos y dos dígitos de segundos
-        int minutos = tiempo / 60;
-        int segundos = tiempo % 60;
-        tiempoTxt.text = "Tiempo: " + minutos.ToString("00") + " " + segundos.ToString("00");
         // los dos cerillos es para darle formato de dos dígitos
+
+        if (tiempo >= 0)
+        {
+            int minutos = tiempo / 60;
+            int segundos = tiempo % 60;
+            tiempoTxt.text = "Tiempo: " + minutos.ToString("00") + " " + segundos.ToString("00");
+        } else
+        {
+            tiempoTxt.text = "Tiempo: 00 00";
+        }
     }
 }
