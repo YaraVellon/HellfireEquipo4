@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,9 +27,12 @@ public class GameManager : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager");
         health = 50;
+
         puntuacion = 0;
-        tiempoMAXIMO = 120;
+
+        tiempoMAXIMO = 10;
         tiempoRestante = tiempoMAXIMO;
+
         bossDificil = false;
         attackDamage = 20;
 
@@ -43,6 +47,7 @@ public class GameManager : MonoBehaviour
         if (tiempoRestante == 0)
         {
             bossDificil = true;
+            Console.WriteLine("MODO CHUNGO");
         }
     }
 

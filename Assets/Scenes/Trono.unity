@@ -1527,6 +1527,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7259480865421923427, guid: 04cafd45de1de12438e53259dc46d327, type: 3}
+      propertyPath: tiempoTxt
+      value: 
+      objectReference: {fileID: 581464598}
+    - target: {fileID: 7259480865421923427, guid: 04cafd45de1de12438e53259dc46d327, type: 3}
+      propertyPath: puntuacionesTxt
+      value: 
+      objectReference: {fileID: 581464597}
     - target: {fileID: 8099799160893256114, guid: 04cafd45de1de12438e53259dc46d327, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1634,6 +1642,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &581464597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5074608532683973312, guid: 04cafd45de1de12438e53259dc46d327, type: 3}
+  m_PrefabInstance: {fileID: 581464594}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &581464598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8966584951185840444, guid: 04cafd45de1de12438e53259dc46d327, type: 3}
+  m_PrefabInstance: {fileID: 581464594}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!223 &581464599 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 8888095666570612991, guid: 04cafd45de1de12438e53259dc46d327, type: 3}
+  m_PrefabInstance: {fileID: 581464594}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &591400031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4596042114047676671, guid: e48df03ddcf0c6e489044a97b5d0f35e, type: 3}
@@ -6792,6 +6827,10 @@ PrefabInstance:
       propertyPath: botonAtaque
       value: 
       objectReference: {fileID: 581464596}
+    - target: {fileID: 5772681312671020647, guid: b6cf16d6bdbd205498735f1c906959e5, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 581464599}
     - target: {fileID: 6895643110925800671, guid: b6cf16d6bdbd205498735f1c906959e5, type: 3}
       propertyPath: joystick
       value: 
