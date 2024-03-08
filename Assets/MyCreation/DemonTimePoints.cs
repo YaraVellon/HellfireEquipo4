@@ -25,6 +25,7 @@ public class DemonTimePoints : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        hud.setPuntuacionesTxt();
         hud.setTiempoText();
     }
 }

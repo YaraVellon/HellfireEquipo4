@@ -28,6 +28,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager");
+
+        estadoInicial();
+
+        DontDestroyOnLoad(gameManager);
+        cambiarEscena("Menu");
+    }
+
+    public void estadoInicial()
+    {
         health = 50;
 
         puntuacion = 0;
@@ -38,10 +47,6 @@ public class GameManager : MonoBehaviour
 
         bossDificil = false;
         attackDamage = 20;
-
-
-        DontDestroyOnLoad(gameManager);
-        cambiarEscena("Menu");
     }
 
     // Update is called once per frame
@@ -81,9 +86,9 @@ public class GameManager : MonoBehaviour
         return health;
     }
 
-    public void subirVida()
+    public void subirVida(int vidaSube)
     {
-        health += 10;
+        health += vidaSube;
     }
 
     public void bajarVida()

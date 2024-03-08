@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class ControlMenu : MonoBehaviour
 {
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -41,5 +43,6 @@ public class ControlMenu : MonoBehaviour
     public void OnBotonContinuar()
     {
         SceneManager.LoadScene("Trono");
+        gameManager.estadoInicial();
     }
 }
