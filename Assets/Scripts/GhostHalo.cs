@@ -156,4 +156,11 @@ public class GhostHalo : MonoBehaviour
     {
         rb2d.velocity = new Vector2(0, 0);
     }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<DemonHealth>().QuitarVida();
+        }
+    }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 600337696059894821}
   - component: {fileID: 3758615439184418423}
   - component: {fileID: 4799262269984731126}
+  - component: {fileID: 5498471199823808327}
   m_Layer: 13
   m_Name: BurningGhoul
   m_TagString: Untagged
@@ -236,6 +237,41 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!70 &5498471199823808327
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76914533589092234}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000041756046, y: -0.047554612}
+  m_Size: {x: 0.32423428, y: 0.4248907}
+  m_Direction: 0
 --- !u!1 &2111942557400349016
 GameObject:
   m_ObjectHideFlags: 0

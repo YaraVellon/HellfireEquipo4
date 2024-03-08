@@ -4877,6 +4877,7 @@ GameObject:
   - component: {fileID: 2520588083073563883}
   - component: {fileID: 830563655548628875}
   - component: {fileID: 8924990191083906363}
+  - component: {fileID: 8255350482983097102}
   m_Layer: 13
   m_Name: Skeleton
   m_TagString: Untagged
@@ -5095,6 +5096,41 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.038244195, y: -0.063600756}
   m_Size: {x: 0.16325812, y: 0.39279827}
+  m_Direction: 0
+--- !u!70 &8255350482983097102
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540363591715333069}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000000041756046, y: -0.047554612}
+  m_Size: {x: 0.32423428, y: 0.4248907}
   m_Direction: 0
 --- !u!1 &2767812500021734611
 GameObject:

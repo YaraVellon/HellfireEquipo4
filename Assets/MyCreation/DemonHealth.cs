@@ -21,4 +21,15 @@ public class DemonHealth : MonoBehaviour
 
         healthBar.UpdateHealthBar(health, maxHealth);
     }
+    public void QuitarVida()
+    {
+        this.health -= 10;
+        Debug.Log(this.health);
+        healthBar.UpdateHealthBar(health, maxHealth);
+    }
+    public void QuitarVidaCaida(int vida)
+    {
+        this.health -= vida;
+        healthBar.UpdateHealthBar(health, maxHealth);
+    }
 }

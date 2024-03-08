@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 1671981885287813174}
   - component: {fileID: 5998939263122735005}
   - component: {fileID: 5577384404938576330}
+  - component: {fileID: 2297364766199168295}
   m_Layer: 13
   m_Name: GhostHalo
   m_TagString: Untagged
@@ -604,6 +605,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc1883250cc91d45a4a3706d8af7493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &2297364766199168295
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779256872065655033}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0023979635, y: -0.010450057}
+  m_Size: {x: 0.33862168, y: 0.4991}
+  m_Direction: 0
 --- !u!1 &8558281724370242064
 GameObject:
   m_ObjectHideFlags: 0

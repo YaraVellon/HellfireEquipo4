@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 763896293689071211}
   - component: {fileID: 6306267112363006388}
   - component: {fileID: 4275170578384833200}
+  - component: {fileID: 3100111708751800820}
   m_Layer: 13
   m_Name: Wizard
   m_TagString: Untagged
@@ -338,6 +339,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ccb754d4bb2479469e31e0e5a7cf782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &3100111708751800820
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824704862684111806}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.018070066, y: -0.11846664}
+  m_Size: {x: 0.52681506, y: 0.4760968}
+  m_Direction: 0
 --- !u!1 &5371504965592450281
 GameObject:
   m_ObjectHideFlags: 0
