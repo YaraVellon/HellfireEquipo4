@@ -8,13 +8,13 @@ public class GameManager : MonoBehaviour
     private GameObject gameManager;
 
     // Para poder conservar la vida entre niveles y cambiarla (sube/baja) con power-ups
-    public int vidasGlobal;
+    private float health;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager");
-        vidasGlobal = 50;
+        health = 100;
         DontDestroyOnLoad(gameManager);
         cambiarEscena("Menu");
     }
@@ -30,18 +30,23 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(siguienteEscena);
     }
 
-    public int getVidas()
+    public float getHealth()
     {
-        return vidasGlobal;
+        return health;
     }
 
-    public void bajarVidas()
+    public void subirVida()
     {
-        vidasGlobal--;
+        health++;
     }
 
-    public void subirVidas()
+    public void bajarVida()
     {
-        vidasGlobal++;
+        health -= 10;
+    }
+
+    public void bajarVida(int vidaPierde)
+    {
+        health -= vidaPierde;
     }
 }
