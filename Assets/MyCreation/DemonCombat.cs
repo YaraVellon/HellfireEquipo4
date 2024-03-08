@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DemonCombat : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class DemonCombat : MonoBehaviour
     public LayerMask enemyLayers;
 
     public int attackDamage = 20;
+
+    // Variable para asignar el ataque al botón
+    public Button botonAtaque;
 
     void Start()
     {
@@ -27,7 +31,7 @@ public class DemonCombat : MonoBehaviour
         } 
     }
 
-    private void Attack()
+    public void Attack()
     {
         animator.SetTrigger("Attack");
 
