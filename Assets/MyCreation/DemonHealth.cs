@@ -9,6 +9,8 @@ public class DemonHealth : MonoBehaviour
     [SerializeField] public float maxHealth = 100; //Vida maxima
     [SerializeField] DemonHealthBar healthBar; //Barra de vida flotante (slider) del enemigo
 
+    public Animator animator;
+
     // GameManager para que la vida actual se quede almacenada ahí
     // Se guarda a través de las escenas; para mostrarla en la health bar, se recupera el valor ahí almacenado
     private GameManager gameManager;
@@ -20,6 +22,8 @@ public class DemonHealth : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         health = gameManager.getHealth();
 
+        animator = GetComponent<Animator>();
+
         healthBar.UpdateHealthBar(health, maxHealth);
     }
 
@@ -28,7 +32,23 @@ public class DemonHealth : MonoBehaviour
     {
 
         healthBar.UpdateHealthBar(health, maxHealth);
+
+
+        if (gameManager.getHealth() <= 0)
+        {
+            healthBar.gameObject.SetActive(false);
+            StartCoroutine(DestroyTimer());
+        }
     }
+
+    IEnumerator DestroyTimer()
+    {
+        animator.Play("Death"); //Se reproduce la animacion de muerte
+        yield return new WaitForSeconds(0.5f); //PARA SABER CUANTO TIEMPO TIENES QUE PONER AQUI, SIMPLEMENTE MIRAR LA DURACION DE LA ANIMACION o ir probando.
+        Destroy(gameObject); //Se destruye el personaje
+        gameManager.setGameOver(); // Se settea el game over como true y salta la pantalla de has muerto
+    }
+
     public void QuitarVida()
     {
         gameManager.bajarVida();

@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     // Para el daño de ataque (modificarlo y conservar modificaciones entre escenas)
     private int attackDamage;
 
+    // Para el fin de la partida
+    private bool gameOver;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
     public void estadoInicial()
     {
         health = 50;
+        gameOver = false;
 
         puntuacion = 0;
 
@@ -60,11 +64,16 @@ public class GameManager : MonoBehaviour
             bossDificil = true;
         }
 
-        if (health == 0)
+        if (gameOver)
         {
             SceneManager.LoadScene("GameOver");
             estadoInicial();
         }
+    }
+
+    public void setGameOver()
+    {
+        this.gameOver = true;
     }
 
     public int getAttackDamage()
