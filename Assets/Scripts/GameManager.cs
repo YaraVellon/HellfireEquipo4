@@ -59,6 +59,12 @@ public class GameManager : MonoBehaviour
         {
             bossDificil = true;
         }
+
+        if (health == 0)
+        {
+            SceneManager.LoadScene("GameOver");
+            estadoInicial();
+        }
     }
 
     public int getAttackDamage()
