@@ -13,7 +13,8 @@ public class DemonCombat : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
-    public int attackDamage = 20;
+    public int attackDamage;
+    private GameManager gameManager;
 
     // Variable para asignar el ataque al botón
     public Button botonAtaque;
@@ -21,6 +22,9 @@ public class DemonCombat : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        gameManager = FindObjectOfType<GameManager>();
+        attackDamage = gameManager.getAttackDamage();
     }
 
     void Update()
