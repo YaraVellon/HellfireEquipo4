@@ -19,6 +19,10 @@ public class DemonCombat : MonoBehaviour
     // Variable para asignar el ataque al botón
     public Button botonAtaque;
 
+    //Tiempo que tarda en poder atacar de nuevo
+    public float attackRate = 2f;
+    float nextAttackTime = 0f;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -29,10 +33,16 @@ public class DemonCombat : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Time.time >= nextAttackTime)
         {
-            Attack();
-        } 
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
+        }
+
+        
     }
 
     public void Attack()
@@ -69,16 +79,10 @@ public class DemonCombat : MonoBehaviour
                 case "Wizard":
                     enemy.GetComponent<Wizard>().TakeDamage(attackDamage);
                     break;
+                case "DemonBoss":
+                    enemy.GetComponent<Boss>().TakeDamage(attackDamage);
+                    break;
             }
-            /*if(enemy.name == "Skeleton")
-            {
-                enemy.GetComponent<Skeleton>().TakeDamage(attackDamage);
-            }
-            else if(enemy.name == "BurningGhoul")
-            {
-                Debug.Log("Hitted");
-                enemy.GetComponent<BurningGhoul>().TakeDamage(attackDamage);
-            }*/
 
         }
     }
