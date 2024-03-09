@@ -29,6 +29,14 @@ public class CambiarEscena : MonoBehaviour
         // con la etiqueta del jugador
         if (collision.CompareTag("Player"))
         {
+            if (siguienteEscena.Equals("SceneVuelta"))
+            {
+                gameManager.bajarAtaque();
+            } else if (siguienteEscena.Equals("Trono"))
+            {
+                gameManager.subirAtaque();
+            }
+            
             SceneManager.LoadScene(siguienteEscena);
             Destroy(gameObject);
         }

@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     private bool bossDificil;
 
     // Para el daño de ataque (modificarlo y conservar modificaciones entre escenas)
+    private int ataquePoderoso;
+    private int ataqueDebil;
     private int attackDamage;
 
     // Para el fin de la partida
@@ -50,7 +52,10 @@ public class GameManager : MonoBehaviour
         momentoInicio = Time.time;
 
         bossDificil = false;
-        attackDamage = 20;
+
+        ataquePoderoso = 20;
+        ataqueDebil = 5;
+        attackDamage = ataquePoderoso;
     }
 
     // Update is called once per frame
@@ -71,6 +76,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void bajarAtaque()
+    {
+        attackDamage = ataqueDebil;
+        Debug.Log("EL VALOR DE ATAQUE ACTUAL ES " + attackDamage);
+    }
+
+    public void subirAtaque()
+    {
+        attackDamage = ataquePoderoso;
+        Debug.Log("EL VALOR DE ATAQUE ACTUAL ES " + attackDamage);
+    }
+
+    public void sumarAtaque(int ataqueSumar)
+    {
+        ataquePoderoso += ataqueSumar;
+        attackDamage = ataquePoderoso;
+        Debug.Log("EL VALOR DE ATAQUE ACTUAL ES " + attackDamage);
+    }
+
     public void setGameOver()
     {
         this.gameOver = true;
@@ -81,10 +105,6 @@ public class GameManager : MonoBehaviour
         return this.attackDamage;
     }
 
-    public void subirAtaque(int ataqueSubir)
-    {
-        this.attackDamage += ataqueSubir;
-    }
 
     public bool getBossDificil()
     {
