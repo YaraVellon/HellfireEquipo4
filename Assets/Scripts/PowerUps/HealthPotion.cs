@@ -24,6 +24,7 @@ public class HealthPotion : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             gameManager.subirVida(25);
+            gameManager.subirPuntos(2);
             Destroy(gameObject);
         }
     }

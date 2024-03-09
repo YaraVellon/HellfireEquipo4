@@ -24,7 +24,6 @@ public class Boss : MonoBehaviour
     private bool chasing = false;
     RaycastHit2D hitPlayerL;
     RaycastHit2D hitPlayerR;
-    public ParticleSystem dust;
 
     public Animator animator;
     void Start()
@@ -88,7 +87,6 @@ public class Boss : MonoBehaviour
     }
     private void MoverEnemigo()
     {
-        dust.Play();
         Vector3 posiciondestino = (moviendoAFin) ? posicionFin : posicionInicio;
         transform.position = Vector3.MoveTowards(transform.position, posiciondestino, velocidad * Time.deltaTime);
         if (transform.position == posicionFin) moviendoAFin = false;

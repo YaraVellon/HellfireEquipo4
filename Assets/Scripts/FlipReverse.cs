@@ -37,8 +37,11 @@ public class FlipReverse : MonoBehaviour
             case "DemonBoss":
                 GetComponent<Boss>().dir = !(posicionXAnterior < transform.position.x);
                 break;
+            case "DemonBossHard":
+                GetComponent<Boss>().dir = !(posicionXAnterior < transform.position.x);
+                break;
         }
-        
+
         sprite.flipX = posicionXAnterior > transform.position.x;
         posicionXAnterior = transform.position.x;
     }

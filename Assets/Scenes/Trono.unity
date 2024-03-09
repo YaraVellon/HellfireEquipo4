@@ -1904,7 +1904,7 @@ GameObject:
   - component: {fileID: 716759336}
   - component: {fileID: 716759335}
   - component: {fileID: 716759334}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plataformas
   m_TagString: Suelo
   m_Icon: {fileID: 0}
@@ -6639,7 +6639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1416165492}
   - component: {fileID: 1416165491}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6844,7 +6844,7 @@ Transform:
   m_GameObject: {fileID: 1418827994}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.957882, y: 0.35241008, z: -10}
+  m_LocalPosition: {x: -17.952427, y: 0.35241008, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7537,10 +7537,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1130245597119815485, guid: b6cf16d6bdbd205498735f1c906959e5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 2246671889151529858, guid: b6cf16d6bdbd205498735f1c906959e5, type: 3}
       propertyPath: m_Name
       value: Demon
@@ -7561,14 +7557,6 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1663888125}
-    - target: {fileID: 7093827777162392956, guid: b6cf16d6bdbd205498735f1c906959e5, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7093827777162392956, guid: b6cf16d6bdbd205498735f1c906959e5, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.053
-      objectReference: {fileID: 0}
     - target: {fileID: 8603157343928357636, guid: b6cf16d6bdbd205498735f1c906959e5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.511
@@ -7609,10 +7597,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8655370155683593042, guid: b6cf16d6bdbd205498735f1c906959e5, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7809,6 +7793,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c83f358c3cb3a6f448b5cc9dd4c0ae90, type: 3}
+--- !u!1001 &7057611306071532144
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1964988651349982256, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6118660326844658801, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_Name
+      value: DemonBossHard
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819706756792545711, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819706756792545711, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819706756792545711, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819706756792545711, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819706756792545711, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819706756792545711, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819706756792545711, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819706756792545711, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819706756792545711, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6819706756792545711, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b066449fb57989f4ba2373a6aaca0082, type: 3}
 --- !u!1001 &7467258334177010870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7890,3 +7935,4 @@ SceneRoots:
   - {fileID: 1847710466832389569}
   - {fileID: 856439661}
   - {fileID: 1094839691}
+  - {fileID: 7057611306071532144}

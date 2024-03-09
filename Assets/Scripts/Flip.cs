@@ -34,8 +34,11 @@ public class Flip : MonoBehaviour
             case "Wizard":
                 GetComponent<Wizard>().dir = !(posicionXAnterior < transform.position.x);
                 break;
+            case "DemonBoss":
+                GetComponent<Boss>().dir = !(posicionXAnterior < transform.position.x);
+                break;
         }
-        
+
         sprite.flipX = posicionXAnterior < transform.position.x;
         posicionXAnterior = transform.position.x;
     }

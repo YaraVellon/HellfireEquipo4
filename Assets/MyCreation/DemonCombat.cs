@@ -82,6 +82,9 @@ public class DemonCombat : MonoBehaviour
                 case "DemonBoss":
                     enemy.GetComponent<Boss>().TakeDamage(attackDamage);
                     break;
+                case "DemonBossHard":
+                    enemy.GetComponent<Boss>().TakeDamage(attackDamage);
+                    break;
             }
 
         }

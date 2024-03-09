@@ -47,7 +47,7 @@ public class DemonBehaviour : MonoBehaviour
         //RECOJO LOS VALORES QUE INDICAN EL MOVIMIENTO DEL PERSONAJE (1) - derecha , (-1) - izquierda, (0) - parado
         // inclusión del joystick; si los valores de movimiento superan una cierta sensibilidad, el movimiento horizontal
         // se pilla del joystick; si no, de los botones
-
+        
         if (gameManager.getChaosMode() == false)
         {
 
@@ -74,8 +74,8 @@ public class DemonBehaviour : MonoBehaviour
 
         }
 
-        
-        
+
+
 
 
         rb2d.velocity = new Vector2(movimientoH * velocidad, rb2d.velocity.y);
