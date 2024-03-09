@@ -103,7 +103,14 @@ public class GameManager : MonoBehaviour
 
     public void subirVida(int vidaSube)
     {
-        health += vidaSube;
+        if ((health + vidaSube) <= 100)
+        {
+            health += vidaSube;
+        } else
+        {
+            health = 100;
+        }
+        Debug.Log("VIDA ACTUAL: " + health);
     }
 
     public void bajarVida()

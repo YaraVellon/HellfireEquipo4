@@ -30,7 +30,7 @@ public class DemonHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        health = gameManager.getHealth();
         healthBar.UpdateHealthBar(health, maxHealth);
 
 
