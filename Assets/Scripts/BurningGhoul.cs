@@ -26,9 +26,15 @@ public class BurningGhoul : MonoBehaviour
     RaycastHit2D hitPlayerR;
     public ParticleSystem dust;
 
+    private GameManager gameManager;
+    private bool muerto;
+
     public Animator animator;
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+        muerto = false;
+
         posicionInicio = transform.position;  //Nos da la posición en la que estamos
 
         moviendoAFin = true;
@@ -100,6 +106,12 @@ public class BurningGhoul : MonoBehaviour
         healthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
         {
+            if (!muerto)
+            {
+                muerto = true;
+                gameManager.subirPuntos(70);
+                Debug.Log("ENEMIGO MUERTO.");
+            }
             healthBar.gameObject.SetActive(false);
             StartCoroutine(DestroyTimer());
             //Destroy(gameObject);

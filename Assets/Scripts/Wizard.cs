@@ -29,9 +29,14 @@ public class Wizard : MonoBehaviour
     //Variables para la muerte del enemigo
     public Animator animator;
 
+    private GameManager gameManager;
+    private bool muerto;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+        muerto = false;
 
         healthBar = GetComponentInChildren<FloatingHealthBar>();
         healthBar.UpdateHealthBar(health, maxHealth);
@@ -90,6 +95,12 @@ public class Wizard : MonoBehaviour
         healthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
         {
+            if (!muerto)
+            {
+                muerto = true;
+                gameManager.subirPuntos(30);
+                Debug.Log("ENEMIGO MUERTO.");
+            }
             //Esconde la barra de vida si el enemigo a muerto
             healthBar.gameObject.SetActive(false);
             StartCoroutine(DestroyTimer()); //Comienza una corutina para ejecutar la animacion de muerte antes de destruir al enemigo

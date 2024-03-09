@@ -29,9 +29,15 @@ public class ClothedSkeleton : MonoBehaviour
     
     public Animator animator;
 
-    
+    private GameManager gameManager;
+    private bool muerto;
+
+
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+        muerto = false;
+
         posicionInicio = transform.position;  //Nos da la posición en la que estamos
 
         moviendoAFin = true;
@@ -114,6 +120,12 @@ public class ClothedSkeleton : MonoBehaviour
         healthBar.UpdateHealthBar(health, maxHealth);
         if (health <= 0)
         {
+            if (!muerto)
+            {
+                muerto = true;
+                gameManager.subirPuntos(50);
+                Debug.Log("ENEMIGO MUERTO.");
+            }
             //Esconde la barra de vida si el enemigo a muerto
             healthBar.gameObject.SetActive(false);
             StartCoroutine(DestroyTimer()); //Comienza una corutina para ejecutar la animacion de muerte antes de destruir al enemigo
