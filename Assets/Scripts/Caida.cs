@@ -27,7 +27,7 @@ public class Caida : MonoBehaviour
         {
             SceneManager.LoadScene(siguienteEscena);
             Destroy(gameObject);
-            collision.gameObject.GetComponent<DemonHealth>().QuitarVida();
+            collision.gameObject.GetComponent<DemonHealth>().QuitarVidaCaida(10);
         }
     }
 }

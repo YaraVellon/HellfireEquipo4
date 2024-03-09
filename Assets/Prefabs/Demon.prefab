@@ -131,7 +131,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1.16
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e2a39a7163a1a6445bcb7466b3d606c6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -179,6 +179,7 @@ MonoBehaviour:
     m_Bits: 8192
   attackDamage: 20
   botonAtaque: {fileID: 0}
+  attackRate: 2
 --- !u!70 &2482944251008509145
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -188,7 +189,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 2246671889151529858}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e2a39a7163a1a6445bcb7466b3d606c6, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -229,6 +230,7 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   healthBar: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &5772681312671020647
 MonoBehaviour:
   m_ObjectHideFlags: 0

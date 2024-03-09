@@ -145,11 +145,11 @@ public class GameManager : MonoBehaviour
 
     public void subirTiempo(int tiempoSube)
     {
-        this.tiempoRestante += tiempoSube;
+        this.tiempoMAXIMO += tiempoSube;
     }
 
     public void bajarTiempo(int tiempoBaja)
     {
-        this.tiempoRestante -= tiempoBaja;
+        this.tiempoMAXIMO -= tiempoBaja;
     }
 }
