@@ -126,12 +126,12 @@ TextureImporter:
       name: Dead_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 14
         y: 0
-        width: 128
-        height: 128
+        width: 44
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: Dead_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 135
         y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 45
+      alignment: 9
+      pivot: {x: 0.50572723, y: 0.66751075}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: Dead_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 276
         y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 45
+        height: 34
+      alignment: 9
+      pivot: {x: 0.48205158, y: 0.8721489}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -189,12 +189,12 @@ TextureImporter:
       name: Dead_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 404
         y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 50
+        height: 33
+      alignment: 9
+      pivot: {x: 0.5107678, y: 0.8834257}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,12 +210,12 @@ TextureImporter:
       name: Dead_4
       rect:
         serializedVersion: 2
-        x: 512
+        x: 532
         y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 54
+        height: 33
+      alignment: 9
+      pivot: {x: 0.50498456, y: 0.8997417}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -231,12 +231,12 @@ TextureImporter:
       name: Dead_5
       rect:
         serializedVersion: 2
-        x: 640
+        x: 673
         y: 0
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 54
+        height: 33
+      alignment: 9
+      pivot: {x: 0.51994157, y: 0.8834257}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
