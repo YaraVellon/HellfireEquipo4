@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 
     public void bajarVida()
     {
-        health -= 10;
+        health -= 5;
     }
 
     public void bajarVida(int vidaPierde)
