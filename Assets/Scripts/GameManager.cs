@@ -91,8 +91,14 @@ public class GameManager : MonoBehaviour
     public void sumarAtaque(int ataqueSumar)
     {
         ataquePoderoso += ataqueSumar;
-        attackDamage = ataquePoderoso;
+
+        if (!(attackDamage == ataqueDebil))
+        {
+            attackDamage = ataquePoderoso;
+        }
+
         Debug.Log("EL VALOR DE ATAQUE ACTUAL ES " + attackDamage);
+        Debug.Log("EL VALOR DE ATAQUE MÁXIMO ES " + ataquePoderoso);
     }
 
     public void setGameOver()
