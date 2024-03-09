@@ -24,12 +24,17 @@ public class DemonBehaviour : MonoBehaviour
 
     public bool dir;
 
+    private GameManager gameManager;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         spRd = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -42,14 +47,34 @@ public class DemonBehaviour : MonoBehaviour
         //RECOJO LOS VALORES QUE INDICAN EL MOVIMIENTO DEL PERSONAJE (1) - derecha , (-1) - izquierda, (0) - parado
         // inclusión del joystick; si los valores de movimiento superan una cierta sensibilidad, el movimiento horizontal
         // se pilla del joystick; si no, de los botones
-        if (joystick.Horizontal >  0f | joystick.Horizontal < 0f)
+
+        if (gameManager.getChaosMode() == false)
         {
-            movimientoH = joystick.Horizontal;
-        }
-        else
+
+            if (joystick.Horizontal > 0f | joystick.Horizontal < 0f)
+            {
+                movimientoH = joystick.Horizontal;
+            }
+            else
+            {
+                movimientoH = Input.GetAxisRaw("Horizontal");
+            }
+
+        } else
         {
-            movimientoH = Input.GetAxisRaw("Horizontal");
+
+            if (joystick.Horizontal > 0f | joystick.Horizontal < 0f)
+            {
+                movimientoH = -(joystick.Horizontal);
+            }
+            else
+            {
+                movimientoH = -(Input.GetAxisRaw("Horizontal"));
+            }
+
         }
+
+        
         
 
 

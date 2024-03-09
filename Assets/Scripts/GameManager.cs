@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
     private int ataqueDebil;
     private int attackDamage;
 
+    // Para el modo caótico
+    private bool chaosMode;
+    private float momentoInicioChaosMode;
+    private int tiempoTranscurridoChaosMode;
+
     // Para el fin de la partida
     private bool gameOver;
 
@@ -56,11 +61,25 @@ public class GameManager : MonoBehaviour
         ataquePoderoso = 20;
         ataqueDebil = 5;
         attackDamage = ataquePoderoso;
+
+        chaosMode = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (chaosMode)
+        {
+            tiempoTranscurridoChaosMode = (int)(Time.time - momentoInicioChaosMode);
+
+            if (tiempoTranscurridoChaosMode == 30)
+            {
+                this.chaosMode = false;
+                Debug.Log("MODO CAOS DESACTIVADO");
+            }
+        }
+
+
         tiempoEmpleado = (int)(Time.time - momentoInicio);
         tiempoRestante = tiempoMAXIMO - tiempoEmpleado;
 
@@ -74,6 +93,18 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("GameOver");
             estadoInicial();
         }
+    }
+
+    public void triggerChaosMode()
+    {
+        momentoInicioChaosMode = Time.time;
+        this.chaosMode = true;
+        Debug.Log("MODO CAOS ACTIVADO");
+    }
+
+    public bool getChaosMode()
+    {
+        return this.chaosMode;
     }
 
     public void bajarAtaque()
