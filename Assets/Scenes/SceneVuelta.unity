@@ -935,7 +935,7 @@ Transform:
   m_GameObject: {fileID: 442626652}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.291779, y: 0.75585, z: -9.9575}
+  m_LocalPosition: {x: 17.291779, y: 0.75584984, z: -9.9575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4480,12 +4480,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1563845205}
     - target: {fileID: 6886755603491010419, guid: 3485e1ec3bc40d54da2e493d75c10728, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886755603491010419, guid: 3485e1ec3bc40d54da2e493d75c10728, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886755603491010419, guid: 3485e1ec3bc40d54da2e493d75c10728, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.48
+      value: 26.56
       objectReference: {fileID: 0}
     - target: {fileID: 6886755603491010419, guid: 3485e1ec3bc40d54da2e493d75c10728, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.58
+      value: -3.1
       objectReference: {fileID: 0}
     - target: {fileID: 6886755603491010419, guid: 3485e1ec3bc40d54da2e493d75c10728, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7804,7 +7812,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6972686756098275017, guid: 050833dfbe0fbd542846fe9993ff51f5, type: 3}
       propertyPath: siguienteEscena
-      value: Trono
+      value: TronoFinal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8833,7 +8841,7 @@ Transform:
   m_GameObject: {fileID: 2129854090}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.48, y: -0.58, z: -9.9575}
+  m_LocalPosition: {x: 26.56, y: -3.1, z: -9.9575}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -27,6 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SceneVuelta.unity
     guid: 03ca60935416dd3419b6e6d03f160b2a
   - enabled: 1
+    path: Assets/Scenes/TronoFinal.unity
+    guid: 52aa1f2dcdc571049938dc72232607cf
+  - enabled: 1
+    path: Assets/Scenes/TronoFinalHARD.unity
+    guid: 1670f42465f99e74bbcd2ce17d794055
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 7afcd6ac4e4c484418de38e81508927f
   m_configObjects:

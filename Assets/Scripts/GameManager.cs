@@ -80,8 +80,12 @@ public class GameManager : MonoBehaviour
         }
 
 
-        tiempoEmpleado = (int)(Time.time - momentoInicio);
-        tiempoRestante = tiempoMAXIMO - tiempoEmpleado;
+        if (tiempoRestante > 0)
+        {
+            tiempoEmpleado = (int)(Time.time - momentoInicio);
+            tiempoRestante = tiempoMAXIMO - tiempoEmpleado;
+            Debug.Log("Tiempo restante: " + tiempoRestante);
+        }
 
         if (tiempoRestante == 0)
         {
@@ -111,12 +115,14 @@ public class GameManager : MonoBehaviour
     {
         attackDamage = ataqueDebil;
         Debug.Log("EL VALOR DE ATAQUE ACTUAL ES " + attackDamage);
+        Debug.Log("EL VALOR DE ATAQUE MÁXIMO ES " + ataquePoderoso);
     }
 
     public void subirAtaque()
     {
         attackDamage = ataquePoderoso;
         Debug.Log("EL VALOR DE ATAQUE ACTUAL ES " + attackDamage);
+        Debug.Log("EL VALOR DE ATAQUE MÁXIMO ES " + ataquePoderoso);
     }
 
     public void sumarAtaque(int ataqueSumar)

@@ -29,14 +29,34 @@ public class CambiarEscena : MonoBehaviour
         // con la etiqueta del jugador
         if (collision.CompareTag("Player"))
         {
+            // Cambios a aplicar cuando la escena a cargar sea la de vuelta
             if (siguienteEscena.Equals("SceneVuelta"))
             {
                 gameManager.bajarAtaque();
-            } else if (siguienteEscena.Equals("Trono"))
+            }
+
+
+            // Cuando la escena a cargar sea TronoFinal:
+            if (siguienteEscena.Equals("TronoFinal"))
             {
-                gameManager.subirAtaque();
+                // Se verifica si se ha activado o no la pelea final en modo difícil
+                bool hard = gameManager.getBossDificil();
+
+                if (hard)
+                {
+                    // Si es la versión difícil, se carga TronoFinalHARD y se baja el daño
+                    siguienteEscena = "TronoFinalHARD";
+                    gameManager.bajarAtaque();
+
+                } else
+                {
+                    // Si es la versión normal, se carga TronoFinal y se baja el daño
+                    // la variable siguienteEscena ya es TronoFinal
+                    gameManager.subirAtaque();
+                }
             }
             
+
             SceneManager.LoadScene(siguienteEscena);
             Destroy(gameObject);
         }
