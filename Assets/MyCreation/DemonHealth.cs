@@ -62,7 +62,6 @@ public class DemonHealth : MonoBehaviour
     public void QuitarVidaCaida(int vida)
     {
         gameManager.bajarVida(vida);
-        gameManager.bajarPuntos(10);
 
         this.health = gameManager.getHealth();
         healthBar.UpdateHealthBar(health, maxHealth);

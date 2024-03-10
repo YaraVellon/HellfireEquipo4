@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
     // Para el fin de la partida
     private bool gameOver;
 
+    // Para el caso de victoria tras la partida
+    private int puntuacionFinal;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,7 +94,6 @@ public class GameManager : MonoBehaviour
         {
             tiempoEmpleado = (int)(Time.time - momentoInicio);
             tiempoRestante = tiempoMAXIMO - tiempoEmpleado;
-            Debug.Log("Tiempo restante: " + tiempoRestante);
         }
 
         if (tiempoRestante == 0)
@@ -107,9 +110,18 @@ public class GameManager : MonoBehaviour
 
         if (bossMuerto)
         {
-            SceneManager.LoadScene("Menu");
-            estadoInicial();
+            bossMuerto = false;
+            puntuacionFinal = puntuacion + tiempoRestante;
+            Debug.Log("Tiempo restante: " + tiempoRestante);
+            Debug.Log("Puntuacion: " + puntuacion);
+            Debug.Log("Puntuacion final: " + puntuacionFinal);
+            SceneManager.LoadScene("Victoria");
         }
+    }
+
+    public int getPuntuacionFinal()
+    {
+        return this.puntuacionFinal;
     }
 
     public void setEntradaSalaBoss()

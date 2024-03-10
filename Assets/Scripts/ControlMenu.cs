@@ -38,6 +38,7 @@ public class ControlMenu : MonoBehaviour
     public void OnBotonMenu()
     {
         SceneManager.LoadScene("Menu");
+        gameManager.estadoInicial();
     }
 
     public void OnBotonContinuar()
