@@ -23,6 +23,7 @@ public class DemonCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+
     void Start()
     {
         animator = GetComponent<Animator>();

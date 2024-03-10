@@ -28,6 +28,8 @@ public class GhostHalo : MonoBehaviour
 
     private GameManager gameManager;
     private bool muerto;
+    public float damageInterval = 3f;
+    private float nextDamageTime;
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -39,6 +41,7 @@ public class GhostHalo : MonoBehaviour
 
         healthBar = GetComponentInChildren<FloatingHealthBar>();
         healthBar.UpdateHealthBar(health, maxHealth);
+        nextDamageTime = Time.time;
     }
 
     // Update is called once per frame
@@ -172,7 +175,23 @@ public class GhostHalo : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<DemonHealth>().QuitarVida();
+            InflictDamage(collision.gameObject);
         }
+    }
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Si el tiempo actual es mayor que el tiempo del próximo daño, infligir daño nuevamente
+            if (Time.time >= nextDamageTime)
+            {
+                InflictDamage(collision.gameObject);
+                nextDamageTime = Time.time + damageInterval; // Actualizar el tiempo del próximo daño
+            }
+        }
+    }
+    public void InflictDamage(GameObject player)
+    {
+        player.GetComponent<DemonHealth>().QuitarVida();
     }
 }

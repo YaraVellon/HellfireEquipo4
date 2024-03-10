@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 8164745208934667649}
   - component: {fileID: 107553252912251665}
   - component: {fileID: 1407264705487873959}
+  - component: {fileID: 2508751837073923543}
   m_Layer: 13
   m_Name: DemonBoss
   m_TagString: Untagged
@@ -486,6 +487,7 @@ MonoBehaviour:
   obstacleRayObjectL: {fileID: 6547098307208084025}
   obstacleRayObjectR: {fileID: 782516994296930143}
   dir: 0
+  damage: 10
   animator: {fileID: 8164745208934667649}
 --- !u!114 &1407264705487873959
 MonoBehaviour:
@@ -499,6 +501,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc1883250cc91d45a4a3706d8af7493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!70 &2508751837073923543
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982753912477745206}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.031078149, y: -0.27714136}
+  m_Size: {x: 0.44102558, y: 0.50682724}
+  m_Direction: 0
 --- !u!1 &1769028190155685857
 GameObject:
   m_ObjectHideFlags: 0

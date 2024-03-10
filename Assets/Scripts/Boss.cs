@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boss : MonoBehaviour
 {
@@ -22,8 +23,11 @@ public class Boss : MonoBehaviour
     public GameObject obstacleRayObjectR;
     public bool dir = false;
     private bool chasing = false;
+    public int damage;
     RaycastHit2D hitPlayerL;
     RaycastHit2D hitPlayerR;
+    public float damageInterval = 3f;
+    private float nextDamageTime;
 
     public Animator animator;
     void Start()
@@ -36,6 +40,7 @@ public class Boss : MonoBehaviour
         healthBar.UpdateHealthBar(health, maxHealth);
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        nextDamageTime = Time.time;
     }
 
     // Update is called once per frame
@@ -130,7 +135,23 @@ public class Boss : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<DemonHealth>().QuitarVida();
+            InflictDamage(collision.gameObject);
         }
+    }
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Si el tiempo actual es mayor que el tiempo del próximo daño, infligir daño nuevamente
+            if (Time.time >= nextDamageTime)
+            {
+                InflictDamage(collision.gameObject);
+                nextDamageTime = Time.time + damageInterval; // Actualizar el tiempo del próximo daño
+            }
+        }
+    }
+    public void InflictDamage(GameObject player)
+    {
+        player.GetComponent<DemonHealth>().QuitarVidaCaida(damage);
     }
 }

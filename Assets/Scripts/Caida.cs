@@ -25,6 +25,7 @@ public class Caida : MonoBehaviour
         // con la etiqueta del jugador
         if (collision.CompareTag("Player"))
         {
+
             SceneManager.LoadScene(siguienteEscena);
             Destroy(gameObject);
             collision.gameObject.GetComponent<DemonHealth>().QuitarVidaCaida(10);

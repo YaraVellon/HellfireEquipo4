@@ -38,6 +38,8 @@ public class Skeleton : MonoBehaviour
 
     private GameManager gameManager;
     private bool muerto;
+    public float damageInterval = 3f;
+    private float nextDamageTime;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +55,7 @@ public class Skeleton : MonoBehaviour
         healthBar.UpdateHealthBar(health, maxHealth);
         animator = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
-        
+        nextDamageTime = Time.time;
     }
 
     // Update is called once per frame
@@ -172,7 +174,23 @@ public class Skeleton : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<DemonHealth>().QuitarVida();
+            InflictDamage(collision.gameObject);
         }
+    }
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Si el tiempo actual es mayor que el tiempo del próximo daño, infligir daño nuevamente
+            if (Time.time >= nextDamageTime)
+            {
+                InflictDamage(collision.gameObject);
+                nextDamageTime = Time.time + damageInterval; // Actualizar el tiempo del próximo daño
+            }
+        }
+    }
+    public void InflictDamage(GameObject player)
+    {
+        player.GetComponent<DemonHealth>().QuitarVida();
     }
 }
