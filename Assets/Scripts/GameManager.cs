@@ -46,6 +46,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //PlayerPrefs.DeleteAll();
+
         gameManager = GameObject.Find("GameManager");
 
         rankingPuntuaciones = new List<int>();
@@ -119,6 +121,11 @@ public class GameManager : MonoBehaviour
 
             // Al matar un boss, a la lista de puntuaciones se añade la recién obtenida, las que
             // haya en PlayerPrefs y se reorganizan de mayor a menor
+
+            // Limpio la lista de puntuaciones actual, para evitar inconsistencias o que se repitan
+            // valores por la existencia de partidas anteriores
+            rankingPuntuaciones.Clear();
+
             // Añado al ranking vacío la puntuación actual
             rankingPuntuaciones.Add(puntuacionFinal);
 
