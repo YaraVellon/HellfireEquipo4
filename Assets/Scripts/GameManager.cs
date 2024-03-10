@@ -49,9 +49,6 @@ public class GameManager : MonoBehaviour
         gameManager = GameObject.Find("GameManager");
 
         rankingPuntuaciones = new List<int>();
-        rankingPuntuaciones.Add(0);
-        rankingPuntuaciones.Add(0);
-        rankingPuntuaciones.Add(0);
         estadoInicial();
 
         DontDestroyOnLoad(gameManager);
@@ -120,11 +117,23 @@ public class GameManager : MonoBehaviour
             bossMuerto = false;
             puntuacionFinal = puntuacion + tiempoRestante;
 
-            // Al matar un boss, a la lista de puntuaciones se añade la recién obtenida y se
-            // reorganiza de mayor a menor
+            // Al matar un boss, a la lista de puntuaciones se añade la recién obtenida, las que
+            // haya en PlayerPrefs y se reorganizan de mayor a menor
+            // Añado al ranking vacío la puntuación actual
             rankingPuntuaciones.Add(puntuacionFinal);
+
+            // Añado al ranking las puntuaciones que haya en PlayerPrefs; si no hay, se añade un cero
+            rankingPuntuaciones.Add(PlayerPrefs.GetInt("Primero"));
+            rankingPuntuaciones.Add(PlayerPrefs.GetInt("Segundo"));
+            rankingPuntuaciones.Add(PlayerPrefs.GetInt("Tercero"));
+
+            // Ordeno la list de mayor a menor, para que los tres primeros queden de principio a fin
             rankingPuntuaciones.Sort((a, b) => b.CompareTo(a));
 
+            // Y los meto en PlayerPrefs
+            PlayerPrefs.SetInt("Primero", rankingPuntuaciones[0]);
+            PlayerPrefs.SetInt("Segundo", rankingPuntuaciones[1]);
+            PlayerPrefs.SetInt("Tercero", rankingPuntuaciones[2]);
 
 
             Debug.Log("Tiempo restante: " + tiempoRestante);
@@ -138,17 +147,17 @@ public class GameManager : MonoBehaviour
 
     public int getPrimero()
     {
-        return this.rankingPuntuaciones[0];
+        return PlayerPrefs.GetInt("Primero");
     }
 
     public int getSegundo()
     {
-        return this.rankingPuntuaciones[1];
+        return PlayerPrefs.GetInt("Segundo");
     }
 
     public int getTercero()
     {
-        return this.rankingPuntuaciones[2];
+        return PlayerPrefs.GetInt("Tercero");
     }
 
     public int getPuntuacionFinal()
