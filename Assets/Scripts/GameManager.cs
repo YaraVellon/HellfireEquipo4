@@ -39,12 +39,19 @@ public class GameManager : MonoBehaviour
     // Para el caso de victoria tras la partida
     private int puntuacionFinal;
 
+    // Para el ranking de puntuaciones
+    private List<int> rankingPuntuaciones;
+
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager");
 
+        rankingPuntuaciones = new List<int>();
+        rankingPuntuaciones.Add(0);
+        rankingPuntuaciones.Add(0);
+        rankingPuntuaciones.Add(0);
         estadoInicial();
 
         DontDestroyOnLoad(gameManager);
@@ -112,11 +119,36 @@ public class GameManager : MonoBehaviour
         {
             bossMuerto = false;
             puntuacionFinal = puntuacion + tiempoRestante;
+
+            // Al matar un boss, a la lista de puntuaciones se añade la recién obtenida y se
+            // reorganiza de mayor a menor
+            rankingPuntuaciones.Add(puntuacionFinal);
+            rankingPuntuaciones.Sort((a, b) => b.CompareTo(a));
+
+
+
             Debug.Log("Tiempo restante: " + tiempoRestante);
             Debug.Log("Puntuacion: " + puntuacion);
             Debug.Log("Puntuacion final: " + puntuacionFinal);
+
+
             SceneManager.LoadScene("Victoria");
         }
+    }
+
+    public int getPrimero()
+    {
+        return this.rankingPuntuaciones[0];
+    }
+
+    public int getSegundo()
+    {
+        return this.rankingPuntuaciones[1];
+    }
+
+    public int getTercero()
+    {
+        return this.rankingPuntuaciones[2];
     }
 
     public int getPuntuacionFinal()

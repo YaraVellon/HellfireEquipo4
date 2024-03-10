@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Victoria.unity
     guid: d2ac1ec172a9587479de18f0589eeea7
+  - enabled: 1
+    path: Assets/Scenes/Ranking.unity
+    guid: 1b69d53c421ac91459801e9e8d976445
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 1cc8e57ff347b7145a1f38724b23e108, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: eb0b0b193952f934ba42be4c6fb3cac6, type: 2}

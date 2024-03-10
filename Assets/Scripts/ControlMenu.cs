@@ -46,4 +46,9 @@ public class ControlMenu : MonoBehaviour
         SceneManager.LoadScene("Trono");
         gameManager.estadoInicial();
     }
+
+    public void OnBotonRanking()
+    {
+        SceneManager.LoadScene("Ranking");
+    }
 }
