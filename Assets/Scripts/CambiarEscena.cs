@@ -39,6 +39,7 @@ public class CambiarEscena : MonoBehaviour
             // Cuando la escena a cargar sea TronoFinal:
             if (siguienteEscena.Equals("TronoFinal"))
             {
+                gameManager.setEntradaSalaBoss();
                 // Se verifica si se ha activado o no la pelea final en modo difícil
                 bool hard = gameManager.getBossDificil();
 

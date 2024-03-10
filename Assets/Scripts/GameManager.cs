@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     // Para determinar el ending alcanzado
     private bool bossDificil;
+    private bool entradaSalaBoss;
+    private bool bossMuerto;
 
     // Para el daño de ataque (modificarlo y conservar modificaciones entre escenas)
     private int ataquePoderoso;
@@ -56,7 +58,11 @@ public class GameManager : MonoBehaviour
         tiempoRestante = tiempoMAXIMO;
         momentoInicio = Time.time;
 
+
         bossDificil = false;
+        entradaSalaBoss = false;
+        bossMuerto = false;
+
 
         ataquePoderoso = 20;
         ataqueDebil = 5;
@@ -80,7 +86,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        if (tiempoRestante > 0)
+        if (tiempoRestante > 0 && (entradaSalaBoss==false))
         {
             tiempoEmpleado = (int)(Time.time - momentoInicio);
             tiempoRestante = tiempoMAXIMO - tiempoEmpleado;
@@ -97,6 +103,23 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("GameOver");
             estadoInicial();
         }
+
+
+        if (bossMuerto)
+        {
+            SceneManager.LoadScene("Menu");
+            estadoInicial();
+        }
+    }
+
+    public void setEntradaSalaBoss()
+    {
+        this.entradaSalaBoss = true;
+    }
+
+    public void setBossMuerto()
+    {
+        this.bossMuerto = true;
     }
 
     public void triggerChaosMode()

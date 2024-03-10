@@ -644,8 +644,8 @@ MonoBehaviour:
   velocidad: 7
   posicionFin: {x: 2.85, y: -2.48, z: 0}
   posicionInicio: {x: 0, y: 0, z: 0}
-  health: 120
-  maxHealth: 120
+  health: 150
+  maxHealth: 150
   healthBar: {fileID: 4112660331603095746}
   rb2d: {fileID: 3183645904049399606}
   moveSpeed: 8
@@ -657,6 +657,7 @@ MonoBehaviour:
   obstacleRayObjectR: {fileID: 728023782487657299}
   dir: 0
   damage: 15
+  damageInterval: 3
   animator: {fileID: 2089089781368090856}
 --- !u!114 &4274663394143883399
 MonoBehaviour:

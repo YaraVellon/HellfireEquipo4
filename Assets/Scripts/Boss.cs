@@ -30,8 +30,15 @@ public class Boss : MonoBehaviour
     private float nextDamageTime;
 
     public Animator animator;
+
+    private GameManager gameManager;
+    private bool muerto;
+
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+        muerto = false;
+
         posicionInicio = transform.position;  //Nos da la posición en la que estamos
 
         moviendoAFin = true;
@@ -113,6 +120,24 @@ public class Boss : MonoBehaviour
     {
         animator.Play("Death"); //Se reproduce la animacion de muerte
         yield return new WaitForSeconds(0.418f); //PARA SABER CUANTO TIEMPO TIENES QUE PONER AQUI, SIMPLEMENTE MIRAR LA DURACION DE LA ANIMACION o ir probando.
+        if (!muerto)
+        {
+
+            muerto = true;
+
+            if (gameManager.getBossDificil())
+            {
+                gameManager.subirPuntos(1000);
+            }
+            else
+            {
+                gameManager.subirPuntos(350);
+            }
+
+
+            Debug.Log("BOSS FINAL MUERTO.");
+            gameManager.setBossMuerto();
+        }
         Destroy(gameObject); //Se destruye al enemigo
     }
     void ChasePlayer(Vector3 playerpos)

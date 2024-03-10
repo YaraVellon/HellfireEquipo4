@@ -31,10 +31,10 @@ EditorBuildSettings:
     guid: 52aa1f2dcdc571049938dc72232607cf
   - enabled: 1
     path: Assets/Scenes/TronoFinalHARD.unity
-    guid: 1670f42465f99e74bbcd2ce17d794055
+    guid: 91ca66bf34d0d284d9c71a7965ad61e9
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
-    guid: 7afcd6ac4e4c484418de38e81508927f
+    guid: 398f5139ea3c8b14684e4e7589987ea4
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 1cc8e57ff347b7145a1f38724b23e108, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: eb0b0b193952f934ba42be4c6fb3cac6, type: 2}
